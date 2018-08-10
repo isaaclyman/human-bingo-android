@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Human Bingo</string>
     <string name="front_title">Human Bingo</string>
+    <string name="title_activity_start_new_game">StartNewGame</string>
+    <string name="title_activity_new_game">New Game</string>
+    <string name="title_activity_enter_code">EnterCode</string>
 </resources>
