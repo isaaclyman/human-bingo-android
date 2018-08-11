@@ -3,7 +3,9 @@ package com.isaaclyman.humanbingo
 import android.content.Context
 import android.support.v7.widget.GridLayout
 import android.view.Gravity
+import android.view.View
 import android.view.ViewGroup
+import android.widget.RelativeLayout
 import android.widget.TextView
 import java.util.*
 
@@ -30,18 +32,29 @@ class GameBoard {
 
         for(col in 0 until size) {
             for (row in 0 until size) {
-                val text = TextView(context)
-                text.text = people[iterator++]
-                text.maxLines = 4
-                text.setSingleLine(false)
-
+                val cell = RelativeLayout(context)
                 val cellSpec = { GridLayout.spec(GridLayout.UNDEFINED, GridLayout.FILL, 1f) }
                 val params = GridLayout.LayoutParams(cellSpec(), cellSpec())
-                text.layoutParams = params
-                text.width = 0
-                text.setPadding(10, 4, 10, 4)
-                text.gravity = Gravity.FILL
-                board.addView(text)
+                params.width = 0
+                cell.layoutParams = params
+                cell.setBackgroundResource(R.drawable.bordered_rectangle)
+                cell.gravity = Gravity.CENTER
+                cell.setPadding(10, 4, 10, 4)
+
+
+                val text = TextView(context)
+                text.text = people[iterator++]
+                text.maxLines = 5
+                text.setSingleLine(false)
+
+//                val cellSpec = { GridLayout.spec(GridLayout.UNDEFINED, GridLayout.FILL, 1f) }
+//                val params = GridLayout.LayoutParams(cellSpec(), cellSpec())
+//                text.layoutParams = params
+//                text.width = 0
+                text.gravity = Gravity.CENTER
+//                text.setBackgroundResource(R.drawable.bordered_rectangle)
+                cell.addView(text)
+                board.addView(cell)
             }
         }
     }
