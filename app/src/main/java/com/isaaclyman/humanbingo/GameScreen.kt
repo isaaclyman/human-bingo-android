@@ -40,6 +40,7 @@ class GameScreen : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean = when(item?.itemId) {
         R.id.action_help -> {
+            HelpDialog().show(supportFragmentManager, "help")
             true
         }
         R.id.action_invite -> {

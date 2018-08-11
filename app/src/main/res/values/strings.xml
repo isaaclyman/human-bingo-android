@@ -16,4 +16,10 @@
     <string name="invite">Invite a friend</string>
     <string name="start_over">Start over</string>
     <string name="new_board">New board</string>
+    <string name="help_content">
+        Find a public place with plenty of foot traffic, like an airport, mall, or parking lot.
+        Your bingo card is randomly generated each time you play. Tap each type of person as you see them.
+        Win by crossing off a complete row from side to side, from top to bottom or from corner to corner. That\'s bingo.
+    </string>
+    <string name="ok">OK</string>
 </resources>
