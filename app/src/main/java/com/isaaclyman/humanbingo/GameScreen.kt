@@ -4,9 +4,12 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.support.v7.widget.GridLayout
+import android.view.MenuItem
 
 class GameScreen : AppCompatActivity() {
     private var grid: GridLayout? = null
+    private var board: GameBoard? = null
+    private var boardSize: Int? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,11 +38,28 @@ class GameScreen : AppCompatActivity() {
         return true
     }
 
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean = when(item?.itemId) {
+        R.id.action_help -> {
+            true
+        }
+        R.id.action_invite -> {
+            true
+        }
+        R.id.action_new_board -> {
+            board?.newBoard(boardSize ?: 3)
+            true
+        }
+        else -> {
+            true
+        }
+    }
+
     private fun initSharedGame(code: String) {
-        GameBoard(this, grid!!, null, code)
+        board = GameBoard(this, grid!!, null, code)
     }
 
     private fun initNewGame(mode: GameMode) {
-        GameBoard(this, grid!!, mode, null)
+        boardSize = mode.value
+        board = GameBoard(this, grid!!, mode, null)
     }
 }

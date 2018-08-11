@@ -1,25 +1,34 @@
 package com.isaaclyman.humanbingo
 
 import android.content.Context
+import android.os.Build
+import android.support.v4.widget.TextViewCompat
 import android.support.v7.widget.GridLayout
+import android.util.TypedValue
 import android.view.Gravity
-import android.view.View
-import android.view.ViewGroup
 import android.widget.RelativeLayout
 import android.widget.TextView
 import java.util.*
 
 class GameBoard {
-    val peopleSquares = PeopleSquares()
+    private var context: Context
+    private var board: GridLayout
+    private val peopleSquares = PeopleSquares()
 
     constructor(context: Context, board: GridLayout, mode: GameMode?, code: String?) {
+        this.context = context
+        this.board = board
         if (mode != null) {
             // Create new game
-            val size = mode.value
-            val squares = size * size
-            val people = getRandomPeople(squares)
-            createBoard(context, board, size, people)
+            newBoard(mode.value)
         }
+    }
+
+    fun newBoard(size: Int) {
+        board.removeAllViews()
+        val squares = size * size
+        val people = getRandomPeople(squares)
+        createBoard(context, board, size, people)
     }
 
     private fun ClosedRange<Int>.random() =
@@ -41,18 +50,12 @@ class GameBoard {
                 cell.gravity = Gravity.CENTER
                 cell.setPadding(10, 4, 10, 4)
 
-
                 val text = TextView(context)
                 text.text = people[iterator++]
                 text.maxLines = 5
                 text.setSingleLine(false)
-
-//                val cellSpec = { GridLayout.spec(GridLayout.UNDEFINED, GridLayout.FILL, 1f) }
-//                val params = GridLayout.LayoutParams(cellSpec(), cellSpec())
-//                text.layoutParams = params
-//                text.width = 0
                 text.gravity = Gravity.CENTER
-//                text.setBackgroundResource(R.drawable.bordered_rectangle)
+
                 cell.addView(text)
                 board.addView(cell)
             }
