@@ -145,7 +145,7 @@ class GameBoard {
             }
         }
 
-        val bingo = arrayOf(rowCellsChecked, colCellsChecked, firstDiagChecked, secondDiagChecked).contains(size)
+        val bingo = arrayOf(*rowCellsChecked, *colCellsChecked, firstDiagChecked, secondDiagChecked).contains(size)
         setWin(bingo, blackout)
     }
 
