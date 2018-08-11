@@ -1,6 +1,7 @@
 package com.isaaclyman.humanbingo
 
 import android.os.Bundle
+import android.support.v4.app.NavUtils
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.support.v7.widget.GridLayout
@@ -17,7 +18,7 @@ class GameScreen : AppCompatActivity() {
 
         // Set up toolbar
         setSupportActionBar(findViewById(R.id.game_toolbar))
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
         // Get elements
         grid = findViewById(R.id.grid)
@@ -50,6 +51,10 @@ class GameScreen : AppCompatActivity() {
         }
         R.id.action_new_board -> {
             board?.newBoard(boardSize ?: 3)
+            true
+        }
+        android.R.id.home -> {
+            NavUtils.navigateUpFromSameTask(this)
             true
         }
         else -> {

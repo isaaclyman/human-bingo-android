@@ -6,12 +6,14 @@ import android.view.Gravity
 import android.widget.RelativeLayout
 import android.widget.TextView
 import java.util.*
+import kotlin.math.sqrt
 
 class GameBoard {
     private var context: Context
     private var board: GridLayout
     private val peopleSquares = PeopleSquares()
     private var peopleIndexes: List<Int>? = null
+    private val codeSeparator = "-"
 
     constructor(context: Context, board: GridLayout, mode: GameMode?, code: String?) {
         this.context = context
@@ -19,6 +21,10 @@ class GameBoard {
         if (mode != null) {
             // Create new game
             newBoard(mode.value)
+        } else if (code != null) {
+            // Create predefined game
+            val people = getPeopleByCode(code.split(codeSeparator).map { it.toInt() })
+            createBoard(context, board, sqrt(people.size.toDouble()).toInt(), people)
         }
     }
 
@@ -30,7 +36,7 @@ class GameBoard {
     }
 
     fun getCode(): String {
-        return peopleIndexes?.joinToString("-") ?: ""
+        return peopleIndexes?.joinToString(codeSeparator) ?: ""
     }
 
     private fun ClosedRange<Int>.random() =
@@ -78,5 +84,10 @@ class GameBoard {
         }
         peopleIndexes = chosenIndexes.toList()
         return randomPeople.toList()
+    }
+
+    private fun getPeopleByCode(indexes: List<Int>): List<String> {
+        peopleIndexes = indexes
+        return indexes.map { peopleSquares.squares[it] }.shuffled()
     }
 }
