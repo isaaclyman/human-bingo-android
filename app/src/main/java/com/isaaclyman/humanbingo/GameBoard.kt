@@ -19,7 +19,7 @@ class GameCell(cell: RelativeLayout, val textView: TextView, var isChecked: Bool
                 textView.setTextColor(0xFFFFFFFF.toInt())
             } else {
                 cell.setBackgroundColor(0xFFFFFFFF.toInt())
-                textView.setTextColor(0x000000.toInt())
+                textView.setTextColor(0xFF000000.toInt())
                 cell.setBackgroundResource(R.drawable.bordered_rectangle)
             }
             onChangeListener()
@@ -132,7 +132,7 @@ class GameBoard {
         var firstDiagChecked = 0
         var secondDiagChecked = 0
 
-        for(cell in cells) {
+        for(cell in cells.filter { it.isChecked }) {
             rowCellsChecked[cell.row - 1]++
             colCellsChecked[cell.col - 1]++
 
