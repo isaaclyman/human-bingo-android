@@ -8,11 +8,13 @@ import android.text.TextWatcher
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 
 class EnterCode : AppCompatActivity() {
 
     private var codeTextBox: EditText? = null
     private var startGame: Button? = null
+    private var codeWarning: TextView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,8 +27,15 @@ class EnterCode : AppCompatActivity() {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                if (codeTextBox?.text.toString().trim().length > 0) {
-                    startGame?.isEnabled = true
+                val text = codeTextBox?.text.toString().trim()
+                if (text.length > 0) {
+                    val isValid = validateCode(text)
+                    if (!isValid) {
+                        codeWarning?.text = "Invalid code"
+                    } else {
+                        codeWarning?.text = ""
+                    }
+                    startGame?.isEnabled = isValid
                 } else {
                     startGame?.isEnabled = false
                 }
@@ -39,5 +48,27 @@ class EnterCode : AppCompatActivity() {
             startGame.putExtra("gameCode", codeTextBox?.text.toString())
             startActivity(startGame)
         })
+
+        codeWarning = findViewById(R.id.codeWarningText)
+    }
+
+    private fun validateCode(code: String): Boolean {
+        val split = code.split(GameBoard.codeSeparator)
+        if (!arrayOf(9, 16, 25).contains(split.size)) {
+            return false
+        }
+
+        val numsOrNull = split.map { it.toIntOrNull() }
+        if (numsOrNull.contains(null)) {
+            return false
+        }
+
+        val nums = numsOrNull.filterNotNull()
+        val outOfBounds = nums.any { it > PeopleSquares.squares.lastIndex }
+        if (outOfBounds) {
+            return false
+        }
+
+        return true
     }
 }

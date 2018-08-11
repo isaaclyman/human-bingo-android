@@ -28,12 +28,15 @@ class GameCell(cell: RelativeLayout, val textView: TextView, var isChecked: Bool
 }
 
 class GameBoard {
+    companion object {
+        val codeSeparator = "-"
+    }
+
     private val context: Context
     private val board: GridLayout
     private val announcer: TextView
     private val peopleSquares = PeopleSquares()
     private var peopleIndexes: List<Int>? = null
-    private val codeSeparator = "-"
     private val cells = mutableListOf<GameCell>()
 
     constructor(context: Context, board: GridLayout, announcer: TextView, mode: GameMode?, code: String?) {
