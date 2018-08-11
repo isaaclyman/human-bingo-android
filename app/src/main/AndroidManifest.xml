@@ -18,7 +18,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,16 +25,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".NewGame"
             android:label="@string/title_activity_new_game"
             android:parentActivityName=".MainActivity" />
-
         <activity
             android:name=".EnterCode"
             android:label="@string/title_activity_enter_code"
             android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".GameScreen"
+            android:label="@string/title_activity_game_screen"
+            android:parentActivityName=".MainActivity"></activity>
     </application>
 
 </manifest>

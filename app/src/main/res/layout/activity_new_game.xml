@@ -33,21 +33,21 @@
         app:layout_constraintTop_toBottomOf="@+id/selectGameMode">
 
         <RadioButton
-            android:id="@+id/radioButton2"
+            android:id="@+id/threeGameRadio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Minute Match (3x3)" />
 
         <RadioButton
-            android:id="@+id/radioButton"
+            android:id="@+id/fourGameRadio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Half Hour (4x4)" />
 
         <RadioButton
-            android:id="@+id/radioButton3"
+            android:id="@+id/fiveGameRadio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -55,7 +55,7 @@
     </RadioGroup>
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/startNewGame"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"

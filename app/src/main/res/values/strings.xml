@@ -3,5 +3,16 @@
     <string name="front_title">Human Bingo</string>
     <string name="title_activity_start_new_game">StartNewGame</string>
     <string name="title_activity_new_game">New Game</string>
-    <string name="title_activity_enter_code">EnterCode</string>
+    <string name="title_activity_enter_code">Enter Code</string>
+    <string name="title_activity_game_screen">Game Screen</string>
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_example">Example action</string>
+
+    <string name="action_settings">Settings</string>
 </resources>
