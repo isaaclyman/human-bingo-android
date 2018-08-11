@@ -35,8 +35,7 @@
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".GameScreen"
-            android:label="@string/title_activity_game_screen"
-            android:parentActivityName=".MainActivity"></activity>
+            android:label="@string/title_activity_game_screen"></activity>
     </application>
 
 </manifest>

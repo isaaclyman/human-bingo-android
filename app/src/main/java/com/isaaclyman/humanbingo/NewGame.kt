@@ -17,11 +17,11 @@ class NewGame : AppCompatActivity() {
         setContentView(R.layout.activity_new_game)
 
         gameModeRadioGroup = findViewById(R.id.gameModeRadioGroup)
-        gameModeRadioGroup?.setOnCheckedChangeListener(RadioGroup.OnCheckedChangeListener { group, checkedId ->
+        gameModeRadioGroup?.setOnCheckedChangeListener(RadioGroup.OnCheckedChangeListener { _, checkedId ->
             if (checkedId != -1) {
-                startNewGame?.isClickable = true
+                startNewGame?.isEnabled = true
             } else {
-                startNewGame?.isClickable = false
+                startNewGame?.isEnabled = false
             }
         })
 
@@ -29,6 +29,7 @@ class NewGame : AppCompatActivity() {
         startNewGame?.setOnClickListener(View.OnClickListener { _ ->
             val startGame = Intent(applicationContext, GameScreen::class.java)
             startGame.putExtra("gameType", getGameMode())
+            startActivity(startGame)
         })
     }
 
@@ -39,9 +40,9 @@ class NewGame : AppCompatActivity() {
         val five = findViewById<RadioButton>(R.id.fiveGameRadio).id
 
         return when (checkedId) {
-            three -> return 3
-            four -> return 4
-            five -> return 5
+            three -> 3
+            four -> 4
+            five -> 5
             else -> throw Error("Invalid game mode")
         }
     }

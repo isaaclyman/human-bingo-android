@@ -26,9 +26,9 @@ class EnterCode : AppCompatActivity() {
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 if (codeTextBox?.text.toString().trim().length > 0) {
-                    startGame?.isClickable = true
+                    startGame?.isEnabled = true
                 } else {
-                    startGame?.isClickable = false
+                    startGame?.isEnabled = false
                 }
             }
         })

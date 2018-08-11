@@ -1,13 +1,22 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.isaaclyman.humanbingo.GameScreen">
     <item
-        android:id="@+id/action_example"
-        android:showAsAction="withText|ifRoom"
-        android:title="@string/action_example" />
+        android:id="@+id/action_help"
+        android:title="@string/help"
+        app:showAsAction="withText|ifRoom" />
     <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:showAsAction="never"
-        android:title="@string/action_settings" />
+        android:id="@+id/action_invite"
+        android:orderInCategory="10"
+        android:title="@string/invite"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_new_board"
+        android:orderInCategory="20"
+        android:title="@string/new_board" />
+    <item
+        android:id="@+id/action_start_over"
+        android:orderInCategory="30"
+        android:title="@string/start_over" />
 </menu>
