@@ -35,9 +35,10 @@ class GameBoard {
                 text.maxLines = 4
                 text.setSingleLine(false)
 
-                val currentRow = { GridLayout.spec(GridLayout.UNDEFINED, GridLayout.START, 1f) }
-                val currentCol = { GridLayout.spec(GridLayout.UNDEFINED, GridLayout.START, 1f) }
+                val currentRow = { GridLayout.spec(GridLayout.UNDEFINED, GridLayout.FILL, 1f) }
+                val currentCol = { GridLayout.spec(GridLayout.UNDEFINED, GridLayout.FILL, 1f) }
                 val params = GridLayout.LayoutParams(currentRow(), currentCol())
+                text.width = 0
                 text.layoutParams = params
                 text.gravity = Gravity.FILL
                 board.addView(text)
@@ -49,11 +50,11 @@ class GameBoard {
         var validIndexes = (0..peopleSquares.squares.lastIndex).toMutableList()
         var randomPeople = mutableListOf<String>()
         for (i in 1..num) {
-            val validIndex = (0..validIndexes.lastIndex).random()
-            val peopleIndex = validIndexes[validIndex]
+            val validIndexIndex = (0..validIndexes.lastIndex).random()
+            val peopleIndex = validIndexes[validIndexIndex]
             val person = peopleSquares.squares[peopleIndex]
             randomPeople.add(person)
-            validIndexes.remove(validIndex)
+            validIndexes.remove(peopleIndex)
         }
         return randomPeople.toList()
     }
