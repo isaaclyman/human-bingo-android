@@ -13,7 +13,7 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="help">Help</string>
-    <string name="invite">Invite a friend</string>
+    <string name="invite">Multiplayer</string>
     <string name="start_over">Start over</string>
     <string name="new_board">New board</string>
     <string name="help_content">
@@ -22,4 +22,10 @@
         Win by crossing off a complete row from side to side, from top to bottom or from corner to corner. That\'s bingo.
     </string>
     <string name="ok">OK</string>
+    <string name="sponsored_by">A game sponsored by <a href="https://edwardtheapp.com">Edward the App</a></string>
+    <string name="join_game">Are you joining a friend\'s game?</string>
+    <string name="start_new_game">No, start a new game</string>
+    <string name="enter_code">Yes, I have a code</string>
+    <string name="copy">Copy</string>
+    <string name="copied">Copied!</string>
 </resources>

@@ -1,10 +1,7 @@
 package com.isaaclyman.humanbingo
 
 import android.content.Context
-import android.os.Build
-import android.support.v4.widget.TextViewCompat
 import android.support.v7.widget.GridLayout
-import android.util.TypedValue
 import android.view.Gravity
 import android.widget.RelativeLayout
 import android.widget.TextView
@@ -14,6 +11,7 @@ class GameBoard {
     private var context: Context
     private var board: GridLayout
     private val peopleSquares = PeopleSquares()
+    private var peopleIndexes: List<Int>? = null
 
     constructor(context: Context, board: GridLayout, mode: GameMode?, code: String?) {
         this.context = context
@@ -29,6 +27,10 @@ class GameBoard {
         val squares = size * size
         val people = getRandomPeople(squares)
         createBoard(context, board, size, people)
+    }
+
+    fun getCode(): String {
+        return peopleIndexes?.joinToString("-") ?: ""
     }
 
     private fun ClosedRange<Int>.random() =
@@ -64,14 +66,17 @@ class GameBoard {
 
     private fun getRandomPeople(num: Int): List<String> {
         var validIndexes = (0..peopleSquares.squares.lastIndex).toMutableList()
+        var chosenIndexes = mutableListOf<Int>()
         var randomPeople = mutableListOf<String>()
         for (i in 1..num) {
             val validIndexIndex = (0..validIndexes.lastIndex).random()
             val peopleIndex = validIndexes[validIndexIndex]
+            chosenIndexes.add(peopleIndex)
             val person = peopleSquares.squares[peopleIndex]
             randomPeople.add(person)
             validIndexes.remove(peopleIndex)
         }
+        peopleIndexes = chosenIndexes.toList()
         return randomPeople.toList()
     }
 }

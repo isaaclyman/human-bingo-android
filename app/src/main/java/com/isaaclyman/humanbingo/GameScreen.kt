@@ -24,8 +24,8 @@ class GameScreen : AppCompatActivity() {
 
         // Initialize based on extras
         val extras = intent.extras
-        val gameCode = extras.getString("gameCode")
-        val gameMode = extras.getSerializable("gameMode")
+        val gameCode = extras?.getString("gameCode")
+        val gameMode = extras?.getSerializable("gameMode")
         if (gameCode != null) {
             initSharedGame(gameCode)
         } else if (gameMode != null){
@@ -44,6 +44,8 @@ class GameScreen : AppCompatActivity() {
             true
         }
         R.id.action_invite -> {
+            val dialog = InviteDialog.newInstance(board?.getCode() ?: "")
+            dialog.show(supportFragmentManager, "invite")
             true
         }
         R.id.action_new_board -> {

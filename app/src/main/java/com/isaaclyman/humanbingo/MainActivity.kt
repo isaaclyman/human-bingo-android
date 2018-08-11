@@ -3,8 +3,10 @@ package com.isaaclyman.humanbingo
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.text.method.LinkMovementMethod
 import android.view.View
 import android.widget.Button
+import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
 
@@ -26,5 +28,7 @@ class MainActivity : AppCompatActivity() {
             val enterCodeActivity = Intent(applicationContext, EnterCode::class.java)
             startActivity(enterCodeActivity)
         })
+
+        findViewById<TextView>(R.id.sponsoredBy).movementMethod = LinkMovementMethod.getInstance()
     }
 }

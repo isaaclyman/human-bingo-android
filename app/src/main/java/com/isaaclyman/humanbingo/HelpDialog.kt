@@ -15,7 +15,7 @@ class HelpDialog : DialogFragment() {
         builder.setTitle("Instructions")
                 .setView(inflator!!.inflate(R.layout.help_dialog, null))
                 .setPositiveButton(R.string.ok, DialogInterface.OnClickListener { _, _ ->
-                    // FIRE ZE MISSILES!
+                    // close dialog
                 })
         return builder.create()
     }
