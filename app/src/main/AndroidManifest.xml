@@ -18,7 +18,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".MainActivity"
             android:theme="@style/CustomMenu">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -37,8 +38,12 @@
         <activity
             android:name=".GameScreen"
             android:label="@string/title_activity_game_screen"
-            android:theme="@style/CustomMenu"
-            android:parentActivityName=".MainActivity"></activity>
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/CustomMenu" />
+        <activity
+            android:name=".CreditsScreen"
+            android:label="@string/title_activity_credits"
+            android:parentActivityName=".MainActivity"/>
     </application>
 
 </manifest>

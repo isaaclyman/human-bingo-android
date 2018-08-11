@@ -12,6 +12,7 @@ class MainActivity : AppCompatActivity() {
 
     private var chooseGameModeButton: Button? = null
     private var enterCodeButton: Button? = null
+    private var creditsButton: Button? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,6 +28,12 @@ class MainActivity : AppCompatActivity() {
         enterCodeButton?.setOnClickListener(View.OnClickListener { _ ->
             val enterCodeActivity = Intent(applicationContext, EnterCode::class.java)
             startActivity(enterCodeActivity)
+        })
+
+        creditsButton = findViewById(R.id.creditsButton)
+        creditsButton?.setOnClickListener(View.OnClickListener {
+            val creditsActivity = Intent(applicationContext, CreditsScreen::class.java)
+            startActivity(creditsActivity)
         })
 
         findViewById<TextView>(R.id.sponsoredBy).movementMethod = LinkMovementMethod.getInstance()

@@ -1,13 +1,10 @@
 <resources>
     <string name="app_name">Human Bingo</string>
     <string name="front_title">Human Bingo</string>
-    <string name="title_activity_start_new_game">StartNewGame</string>
+    <string name="title_activity_start_new_game">Start New Game</string>
     <string name="title_activity_new_game">New Game</string>
     <string name="title_activity_enter_code">Enter Code</string>
     <string name="title_activity_game_screen">Human Bingo</string>
-    <string name="title_section1">Section 1</string>
-    <string name="title_section2">Section 2</string>
-    <string name="title_section3">Section 3</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -22,10 +19,17 @@
         Win by crossing off a complete row from side to side, from top to bottom or from corner to corner. That\'s bingo.
     </string>
     <string name="ok">OK</string>
-    <string name="sponsored_by">A game sponsored by <a href="https://edwardtheapp.com">Edward the App</a></string>
+    <string name="sponsored_by">Sponsored by <a href="https://edwardtheapp.com">Edward the App</a></string>
     <string name="join_game">Are you joining a friend\'s game?</string>
     <string name="start_new_game">No, start a new game</string>
     <string name="enter_code">Yes, I have a code</string>
     <string name="copy">Copy</string>
     <string name="copied">Copied!</string>
+    <string name="title_activity_credits">Credits</string>
+    <string name="credits">
+        This game is open source. To read the code, visit us at <a href="https://github.com/isaaclyman/human-bingo-android">GitHub</a>.
+        Thanks to the friends who taught us about this game.
+        Icon made by <a href="https://www.flaticon.com/authors/twitter" title="Twitter">Twitter</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>.
+        Thanks to <a href="https://edwardtheapp.com">Edward the App</a> for sponsoring this game. Edward makes it easier to write your first novel. Visit <a href="https://edwardtheapp.com">edwardtheapp.com</a> to get started.
+    </string>
 </resources>
