@@ -5,6 +5,7 @@
     <item
         android:id="@+id/action_help"
         android:title="@string/help"
+        android:icon="@android:drawable/ic_menu_help"
         app:showAsAction="withText|ifRoom" />
     <item
         android:id="@+id/action_invite"
@@ -15,8 +16,4 @@
         android:id="@+id/action_new_board"
         android:orderInCategory="20"
         android:title="@string/new_board" />
-    <item
-        android:id="@+id/action_start_over"
-        android:orderInCategory="30"
-        android:title="@string/start_over" />
 </menu>

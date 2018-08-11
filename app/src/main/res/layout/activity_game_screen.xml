@@ -6,6 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".GameScreen">
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/game_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
     <android.support.v7.widget.GridLayout
         android:layout_width="379dp"
         android:layout_height="627dp"
