@@ -28,21 +28,21 @@ class NewGame : AppCompatActivity() {
         startNewGame = findViewById(R.id.startNewGame)
         startNewGame?.setOnClickListener(View.OnClickListener { _ ->
             val startGame = Intent(applicationContext, GameScreen::class.java)
-            startGame.putExtra("gameType", getGameMode())
+            startGame.putExtra("gameMode", getGameMode())
             startActivity(startGame)
         })
     }
 
-    private fun getGameMode(): Int {
+    private fun getGameMode(): GameMode {
         val checkedId = gameModeRadioGroup?.checkedRadioButtonId
         val three = findViewById<RadioButton>(R.id.threeGameRadio).id
         val four = findViewById<RadioButton>(R.id.fourGameRadio).id
         val five = findViewById<RadioButton>(R.id.fiveGameRadio).id
 
         return when (checkedId) {
-            three -> 3
-            four -> 4
-            five -> 5
+            three -> GameMode.THREE
+            four -> GameMode.FOUR
+            five -> GameMode.FIVE
             else -> throw Error("Invalid game mode")
         }
     }
