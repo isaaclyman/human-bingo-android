@@ -35,11 +35,11 @@ class GameBoard {
                 text.maxLines = 4
                 text.setSingleLine(false)
 
-                val currentRow = { GridLayout.spec(GridLayout.UNDEFINED, GridLayout.FILL, 1f) }
-                val currentCol = { GridLayout.spec(GridLayout.UNDEFINED, GridLayout.FILL, 1f) }
-                val params = GridLayout.LayoutParams(currentRow(), currentCol())
-                text.width = 0
+                val cellSpec = { GridLayout.spec(GridLayout.UNDEFINED, GridLayout.FILL, 1f) }
+                val params = GridLayout.LayoutParams(cellSpec(), cellSpec())
                 text.layoutParams = params
+                text.width = 0
+                text.setPadding(10, 4, 10, 4)
                 text.gravity = Gravity.FILL
                 board.addView(text)
             }
