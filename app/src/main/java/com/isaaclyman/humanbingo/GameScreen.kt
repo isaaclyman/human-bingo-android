@@ -6,11 +6,13 @@ import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.support.v7.widget.GridLayout
 import android.view.MenuItem
+import android.widget.TextView
 
 class GameScreen : AppCompatActivity() {
     private var grid: GridLayout? = null
     private var board: GameBoard? = null
     private var boardSize: Int? = null
+    private var bingoAnnounce: TextView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,6 +24,7 @@ class GameScreen : AppCompatActivity() {
 
         // Get elements
         grid = findViewById(R.id.grid)
+        bingoAnnounce = findViewById(R.id.bingoAnnounce)
 
         // Initialize based on extras
         val extras = intent.extras
@@ -63,11 +66,11 @@ class GameScreen : AppCompatActivity() {
     }
 
     private fun initSharedGame(code: String) {
-        board = GameBoard(this, grid!!, null, code)
+        board = GameBoard(this, grid!!, bingoAnnounce!!, null, code)
     }
 
     private fun initNewGame(mode: GameMode) {
         boardSize = mode.value
-        board = GameBoard(this, grid!!, mode, null)
+        board = GameBoard(this, grid!!, bingoAnnounce!!, mode, null)
     }
 }
