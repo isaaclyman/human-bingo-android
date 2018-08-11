@@ -15,7 +15,7 @@ class GameCell(cell: RelativeLayout, val textView: TextView, var isChecked: Bool
         cell.setOnClickListener(View.OnClickListener {
             isChecked = !isChecked
             if (isChecked) {
-                cell.setBackgroundColor(0xFF003300.toInt())
+                cell.setBackgroundColor(0xFF007849.toInt())
                 textView.setTextColor(0xFFFFFFFF.toInt())
             } else {
                 cell.setBackgroundColor(0xFFFFFFFF.toInt())
@@ -86,6 +86,7 @@ class GameBoard {
                 text.maxLines = 5
                 text.setSingleLine(false)
                 text.gravity = Gravity.CENTER
+                text.setTextColor(0xFF000000.toInt())
 
                 cell.addView(text)
                 board.addView(cell)
@@ -118,6 +119,7 @@ class GameBoard {
     private fun destroyBoard() {
         board.removeAllViews()
         cells.clear()
+        announcer.text = ""
     }
 
     private fun checkWinCondition(size: Int) {
