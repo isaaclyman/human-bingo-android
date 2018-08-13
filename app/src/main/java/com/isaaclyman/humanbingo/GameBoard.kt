@@ -35,7 +35,6 @@ class GameBoard {
     private val context: Context
     private val board: GridLayout
     private val announcer: TextView
-    private val peopleSquares = PeopleSquares()
     private var peopleIndexes: List<Int>? = null
     private val cells = mutableListOf<GameCell>()
 
@@ -99,14 +98,14 @@ class GameBoard {
     }
 
     private fun getRandomPeople(num: Int): List<String> {
-        var validIndexes = (0..peopleSquares.squares.lastIndex).toMutableList()
+        var validIndexes = (0..PeopleSquares.squares.lastIndex).toMutableList()
         var chosenIndexes = mutableListOf<Int>()
         var randomPeople = mutableListOf<String>()
         for (i in 1..num) {
             val validIndexIndex = (0..validIndexes.lastIndex).random()
             val peopleIndex = validIndexes[validIndexIndex]
             chosenIndexes.add(peopleIndex)
-            val person = peopleSquares.squares[peopleIndex]
+            val person = PeopleSquares.squares[peopleIndex]
             randomPeople.add(person)
             validIndexes.remove(peopleIndex)
         }
@@ -116,7 +115,7 @@ class GameBoard {
 
     private fun getPeopleByCode(indexes: List<Int>): List<String> {
         peopleIndexes = indexes
-        return indexes.map { peopleSquares.squares[it] }.shuffled()
+        return indexes.map { PeopleSquares.squares[it] }.shuffled()
     }
 
     private fun destroyBoard() {
