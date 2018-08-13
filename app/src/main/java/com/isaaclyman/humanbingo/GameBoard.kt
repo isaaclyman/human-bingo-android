@@ -35,7 +35,7 @@ class GameBoard {
     private val context: Context
     private val board: GridLayout
     private val announcer: TextView
-    private var peopleIndexes: List<Int>? = null
+    var peopleIndexes: List<Int>? = null
     private val cells = mutableListOf<GameCell>()
 
     constructor(context: Context, board: GridLayout, announcer: TextView, mode: GameMode?, code: String?) {

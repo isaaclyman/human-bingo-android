@@ -37,6 +37,7 @@ class EnterCode : AppCompatActivity() {
                     }
                     startGame?.isEnabled = isValid
                 } else {
+                    codeWarning?.text = ""
                     startGame?.isEnabled = false
                 }
             }
@@ -66,6 +67,11 @@ class EnterCode : AppCompatActivity() {
         val nums = numsOrNull.filterNotNull()
         val outOfBounds = nums.any { it > PeopleSquares.squares.lastIndex }
         if (outOfBounds) {
+            return false
+        }
+
+        val distinctNums = nums.distinct()
+        if (distinctNums.size != nums.size) {
             return false
         }
 

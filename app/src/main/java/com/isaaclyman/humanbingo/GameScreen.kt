@@ -7,6 +7,7 @@ import android.view.Menu
 import android.support.v7.widget.GridLayout
 import android.view.MenuItem
 import android.widget.TextView
+import kotlin.math.sqrt
 
 class GameScreen : AppCompatActivity() {
     private var grid: GridLayout? = null
@@ -67,6 +68,7 @@ class GameScreen : AppCompatActivity() {
 
     private fun initSharedGame(code: String) {
         board = GameBoard(this, grid!!, bingoAnnounce!!, null, code)
+        boardSize = sqrt(board?.peopleIndexes?.size?.toDouble() ?: 9.0).toInt()
     }
 
     private fun initNewGame(mode: GameMode) {
