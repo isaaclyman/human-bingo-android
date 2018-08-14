@@ -100,8 +100,13 @@ class PeopleSquares {
                 "Accidental collision",
                 "Sunburn",
                 "Animal lover",
-                "Frosted tips"
+                "Frosted tips",
                 // 90
+                "Two Phones",
+                "Umbrella",
+                "Local School Pride",
+                "Athletic Jersey",
+                "Matching Outfits"
         )
     }
 }
