@@ -100,8 +100,10 @@ class PeopleSquares {
                 "Accidental collision",
                 "Sunburn",
                 "Animal lover",
-                "Frosted tips"
+                "Frosted tips",
                 // 90
+                "Entire sports team",
+                "Dog or cat in a purse or bag"
         )
     }
 }
